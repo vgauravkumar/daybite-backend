@@ -5,6 +5,7 @@
 const Joi = require('joi');
 
 const validate = {
+    id: Joi.number().min(1),
     username: Joi.string(),
     email_id: Joi.string().email(),
     password: Joi.string()
@@ -14,6 +15,8 @@ const validate = {
             'string.pattern.base': 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one of the following special characters: @, -, $, #, or _.',
             'string.min': 'Password must be at least {#limit} characters long.',
         }),
+    food_name: Joi.string().max(100),
+    description: Joi.string().max(500)
 };
 
 module.exports = validate;
